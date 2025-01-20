@@ -6,8 +6,8 @@
 #SBATCH --mem=60G
 #SBATCH --time=12:00:00
 #SBATCH --partition=base
-#SBATCH --output=particles_output_%j.log
-#SBATCH --error=particles_error_%j.log
+#SBATCH --output=FESOM_interp_%j.log
+#SBATCH --error=FESOM_error_%j.log
 
 # Load necessary modules
 module load gcc12-env/12.3.0 

@@ -1,0 +1,27 @@
+digraph {
+	rankdir=TB size="8,5"
+	node [color=lightblue fontname=Arial fontsize=10 shape=box style=filled]
+	Start [label=START]
+	Interpolation [label="Interpolation of FESOM Grid"]
+	NN_Interpolation [label="Nearest Neighbor Interpolation"]
+	Store_Grid [label="Store Interpolated Grid on Hard Drive"]
+	Import_Grid [label="Import Interpolated Grid into Ocean Parcels"]
+	Add_Boundary [label="Add Cyclic Boundary Conditions (Halo)"]
+	Check_Error [label="Check Error for Particles Leaving Domain"]
+	Execute_Particles [label="Execute Particle Simulation Across Domain"]
+	Store_Results [label="Store Particle Trajectories in .zarr Files"]
+	Data_Analysis [label="Perform Data Analysis"]
+	Density_Plots [label="Generate Density Plots & Evaluate Depths"]
+	End [label=END]
+	Start -> Interpolation
+	Interpolation -> NN_Interpolation
+	NN_Interpolation -> Store_Grid
+	Store_Grid -> Import_Grid
+	Import_Grid -> Add_Boundary
+	Add_Boundary -> Check_Error
+	Check_Error -> Execute_Particles
+	Execute_Particles -> Store_Results
+	Store_Results -> Data_Analysis
+	Data_Analysis -> Density_Plots
+	Density_Plots -> End
+}
