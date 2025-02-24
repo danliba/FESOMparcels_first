@@ -2,3 +2,6 @@
 .ipynb_checkpoints
 *.zarr
 *.nc
+unstructured-mesh-parcels-sandbox/
+Parcels/
+plots/
